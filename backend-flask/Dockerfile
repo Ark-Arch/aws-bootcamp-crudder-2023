@@ -25,13 +25,25 @@ FROM python:3.10-slim-buster
 
 
 WORKDIR /backend-flask
+# you should note that this directory been directed to is that on the guest OS inside the container.
+# it does not respond to the /backend-flask in the host OS.
 
+# since the file contains the libraries we need to run the app
+# THIS COPIES FROM OUTSIDE TO THE INSIDE CONTAINER.
 COPY requirements.txt requirements.txt
+
+# install python variables
 RUN pip3 install -r requirements.txt
 
 COPY . .
 
+# set the Env Vars. and will remain set when the container is running.
 ENV FLASK_ENV=development
 
 EXPOSE ${PORT}
+
+# this command is what runs the flask application.
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+
+# the '-m' this hyphen-m says to run the flask module
+# in practicality, it is important to bind it to the host=0.0.0.0. when dealing with containers!
