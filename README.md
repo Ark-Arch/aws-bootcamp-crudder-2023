@@ -3,6 +3,9 @@
 - Application: Cruddur
 - Cohort: 2023-A1
 
+reference: 
+https://github.com/omenking/aws-bootcamp-cruddur-2023
+
 This is the starting codebase that will be used in the FREE AWS Cloud Project Bootcamp 2023
 
 ![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
