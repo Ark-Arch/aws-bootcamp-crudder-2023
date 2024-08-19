@@ -44,6 +44,8 @@ EXPOSE ${PORT}
 
 # this command is what runs the flask application.
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
+#python3 -m flask run --host=0.0.0.0 --port=4567
+
 
 # the '-m' this hyphen-m says to run the flask module
 # in practicality, it is important to bind it to the host=0.0.0.0. when dealing with containers!
