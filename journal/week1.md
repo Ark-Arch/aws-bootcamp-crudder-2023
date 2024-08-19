@@ -17,3 +17,9 @@ key-words with CORS
 - origin requests.
 -> the solution to a CORS error is on the server. i have to be able to control the server
 - that is how i can include headers (or preflight the headers)
+
+
+***********************************************************
+the difference between RUN and CMD commands in docker
+- RUN is a command that we actually run to create a layer in the docker image. 
+- CMD is the command the container would run when it starts up.
