@@ -40,9 +40,13 @@ DOCKER COMMAND LINE PROMPTS I HAVE LEARNT.
     docker exec container_name_or_id python /app/my_script.py
         this would run a python script located at /app/my_script.py inside the container
     docker exec -it container_name_or_id bash
+        THIS TAKES ME INTO THE CONTAINER ITSELF!
         this would run the bash command inside the container
         the -it allows the STDIN stream open (-i) which allows me to provide input interactively; and -t allocates a pseudo-terminal, which would provide an interactive shell experience (like i would have with SSH)
         so -it allows me to interact with the container as if i am inside a typical terminal session.
+
+- docker rmi container_name_or_id
+    this would remove docker images
 ***********************************************************
 the difference between RUN and CMD commands in docker
 - RUN is a command that we actually run to create a layer in the docker image. 
