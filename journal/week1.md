@@ -47,6 +47,13 @@ DOCKER COMMAND LINE PROMPTS I HAVE LEARNT.
 
 - docker rmi container_name_or_id
     this would remove docker images
+
+- docker run --rm -p 4567:4567 -it backend-flask FRONTEND_URL
+    the -e helps to set environment variables in the container after it is run
+    also the --rm would automatically remove the container after it has being stopped.
+    without the --rm, the container would enter into an exited state. it would not be seen by 'docker ps', but by 'docker ps -a'
+***********************************************************
+it is important to note that while trying to run a docker image, the name of the docker image should be at the last end of the command EXCEPT there is an intention to override it - by it, i mean the container!
 ***********************************************************
 the difference between RUN and CMD commands in docker
 - RUN is a command that we actually run to create a layer in the docker image. 
