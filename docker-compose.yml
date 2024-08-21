@@ -5,6 +5,7 @@ version: "3.8"
 
 # each service in this file represents a container (or a set of containers if i scale the service)
 services:
+
   backend-flask:
     environment:
       FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
@@ -24,7 +25,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend-react-js:/frontend-react-js
+      - ./frontend-react-js:/frontend-react
+      # IT COULD BE WISE NOT TO MOUNT THE PROJECT DIRECTORY AS A VOLUME
+      # this is because if i do that, it may overwrite the node_modules directory created during the build process, which includes 'react-scripts'
 
 
 # the name flag is a hack to change the default prepend folder
