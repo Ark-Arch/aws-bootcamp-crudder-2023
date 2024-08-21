@@ -58,3 +58,24 @@ it is important to note that while trying to run a docker image, the name of the
 the difference between RUN and CMD commands in docker
 - RUN is a command that we actually run to create a layer in the docker image. 
 - CMD is the command the container would run when it starts up.
+
+************************************************************
+*container orchestration is the automated manaement of containerised applications. It is concerned with the managment of their deployment, scaling and monitoring.
+- it helps to abstract underlying infrastructure, and provide a unified API for managing applications accross different environments.
+CONTAINER ORCHESTRATION - docker-compose.yml
+-> docker compose is a tool that allows you to define and manage multi-container Docker applications using a simple YAML file called 'docker-compose.yml'
+- it is designed for applications that involve multiple services that need to run together.
+
+Key Concepts in Docker Compose:
+1. Service: this represents a single container. 
+    in a docker-compose.yml file, you define multiple services that make up my application
+2. Container:
+    the running instance of a service
+3. Network:
+    Docker Compose automatically creates network between containers so they can communicate
+4. Volumes:
+    Persistent storage that can be shared between containers and survive container restarts.
+
+*With docker compose, i can start my application with one command.
+
+Although docker compose and kubernetes both deal with container orchestration, they are designed primarily for local development and testing environments, and not for production-level deployments. 
