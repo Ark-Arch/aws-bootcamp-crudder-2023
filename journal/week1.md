@@ -52,6 +52,18 @@ DOCKER COMMAND LINE PROMPTS I HAVE LEARNT.
     the -e helps to set environment variables in the container after it is run
     also the --rm would automatically remove the container after it has being stopped.
     without the --rm, the container would enter into an exited state. it would not be seen by 'docker ps', but by 'docker ps -a'
+
+- docker compose up (docker-compose up)
+    this is used to start and run Docker containers based on the services defined in a docker-compose.yml file.
+    It would:
+    - read the configuration file
+    - build the images (if necessary)
+    - create the containers
+    - start the containers (backgroud/detached mode, or foreground/interactive mode)
+    - creates and configures networks
+    - creates and mounts volumes. - this would allow container to persist data and share files.
+    * data persistence simply means that the data is stored in a named volume even after the contianer is stopped or removed. (docker volume ls)
+
 ***********************************************************
 it is important to note that while trying to run a docker image, the name of the docker image should be at the last end of the command EXCEPT there is an intention to override it - by it, i mean the container!
 ***********************************************************
