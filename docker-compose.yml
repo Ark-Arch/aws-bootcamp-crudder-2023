@@ -1,0 +1,38 @@
+### THE IMPORTANCE OF THIS FILE IS TO BE ABLE TO MANAGE THE DEPLOYMENT (OR START UP) OF ALL MY CONTAINERIZED APPLICATION AT ONCE!!!
+
+version: "3.8"
+# the above specifies the docker compose file format version
+
+# each service in this file represents a container (or a set of containers if i scale the service)
+services:
+  backend-flask:
+    environment:
+      FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./backend-flask
+    # the bulid specifes the BUILD CONTEXT!. Docker would look for a Dockerfile in the ./backend-flask
+    ports:
+      - "4567:4567"
+    volumes: # VOLUMES ALLOW FOR REAL-TIME CODE SYNCHRONIZATION BETWEN THE HOST AND THE CONTAINER. THIS MAKES IT EASIER TO SEE CHANGES DURING DEVELOPMENT
+      - ./backend-flask:/backend-flask
+      # this is used to mount the ./backend-flask directory from my host machine into the container at /backend-flask.
+      # this is useful for development, as changes i make to the code on my host are immediately reflected in the container
+  frontend-react-js:
+    environment:
+      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+    build: ./frontend-react-js
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+
+
+# the name flag is a hack to change the default prepend folder
+# name when outputting the image names
+# what the above means is that by default, docker would generate a name based on the project and network name. (e.g. yourproject_internal-network)
+# but by explicitly setting the name, I ensure that the network is created with the exact name 'cruddur', regardless of the project name.
+
+networks:
+  internal-network:
+    driver: bridge
+    name: cruddur

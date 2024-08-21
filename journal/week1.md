@@ -79,3 +79,16 @@ Key Concepts in Docker Compose:
 *With docker compose, i can start my application with one command.
 
 Although docker compose and kubernetes both deal with container orchestration, they are designed primarily for local development and testing environments, and not for production-level deployments. 
+
+***********************************************************
+networks:   # this is the top-level section where the custom networks are defined
+  internal-network: # this is the name i am giving to the network. it is an identifier i can use within the compose file to specify which network my containers should connect to.
+    driver: bridge
+        # the driver specifies the type of network i want to create
+        # the bridge is the default network driver in Docker.
+            -> It is used to create an isolated network for my containers on a single host.
+            -> Containers in a bridge network can communicate with each other by default, but they are isolated from external networks unless explicitly configured (like exposing ports).
+            -> Using a bridge network is common for typical container networking scenarios where i want containers to communicate with each other while being isolated from the host or other external networks.
+    name: cruddur # this is used to ensure the name of the network.
+
+the above in the docker-compose.yml file is used to define a custom network configuration.
