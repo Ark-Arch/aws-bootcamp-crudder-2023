@@ -104,3 +104,17 @@ networks:   # this is the top-level section where the custom networks are define
     name: cruddur # this is used to ensure the name of the network.
 
 the above in the docker-compose.yml file is used to define a custom network configuration.
+**************************************************************
+advice
+when starting a project, do it in two stages
+1. write the Dockerfile ready to go, and make convenient shell scripts that would build, run etc. this would be my go to structure for any docker image
+2. then have the docker-compose.yml file to run the image.
+    let it be your goto for prototyping apps.
+        start it from compose, and build it up in parrallel.
+
+the difference between docker-compose up AND docker compose up
+
+docker executable
+docker-compose is a binary file
+
+using docker-compose is running the docker-compose executable directly
