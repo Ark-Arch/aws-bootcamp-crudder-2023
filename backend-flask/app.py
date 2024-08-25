@@ -3,6 +3,9 @@ from flask import request
 from flask_cors import CORS, cross_origin
 import os
 
+# service objects
+# if the below are isolated,
+# we can literally replace this part of the code as containers or lambdas
 from services.home_activities import *
 from services.user_activities import *
 from services.create_activity import *

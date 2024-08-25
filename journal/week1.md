@@ -118,3 +118,7 @@ docker executable
 docker-compose is a binary file
 
 using docker-compose is running the docker-compose executable directly
+
+**********************************************************
+*service objects
+- a concept that pushes the idea of breaking up code into concrete services
