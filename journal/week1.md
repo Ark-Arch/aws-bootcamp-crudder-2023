@@ -122,3 +122,51 @@ using docker-compose is running the docker-compose executable directly
 **********************************************************
 *service objects
 - a concept that pushes the idea of breaking up code into concrete services
+
+**************************************************************
+SECURITY PRACTICES!!!!!!!!
+top ten (10) container security practices
+i can use while working as a cloud engineer, and a cloud security engineer.
+
+Container Security is simply the practice of protecting your applications hosted on compute services like Containers.
+Common examples of applications can be: 
+1. Single Page Applications (SPAs)
+    web applications that operate within a single web page.
+    they load all the necessary resources required for the application in a single load.
+    example is GMAIL; TWITTER; NETFLIX
+    *React is for example used to build SPAs
+    rather than loading entire new pages from the server in response to user actions, they just dynamically write the current page, allowing for a more fluid and responsive user experience.
+    - SPAs serve a single HTML page to the browser and update the content dynamically, avoiding full page reloads.
+    - they only load the necessary parts of the page on the user's requests.
+
+    ADVANTAGLES
+    - reduced server load.
+    - improved user experience
+    DISADVANTAGES
+    - initial load time
+    - a bit complex to build.
+
+    SPAs are largely client-side applications.
+
+SPAs are suitable for containerization because their architecture aligns well with the principles of lightweight, stateless, and portable environments that containers provide.
+
+This therefore makes deployment , scaling and management more efficient and flexible.
+
+2. Microservices
+3. APIs
+
+WHY CONTAINER SECURITY IS IMPORTANT?
+1) containerization is cloud-agnostic. it is not tied to a cloud.
+    there exists a container first strategy everywhere
+    aws ecs
+2) most applications are being developed with containers and are cloud native
+3) it reduces the impact of breach - segragation of application(s) and related services.
+4) 
+
+
+
+
+
+
+
+
