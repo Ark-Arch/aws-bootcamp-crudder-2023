@@ -34,6 +34,7 @@ COPY requirements.txt requirements.txt
 
 # install python variables
 RUN pip3 install -r requirements.txt
+# the RUN command is used to run a layer command as part of the docker image.
 
 COPY . .
 
