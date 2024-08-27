@@ -42,6 +42,7 @@ COPY . .
 ENV FLASK_ENV=development
 
 EXPOSE ${PORT}
+# the above expose command i think is meaningless since the PORT variable is not set.
 
 # this command is what runs the flask application.
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
