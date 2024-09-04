@@ -17,6 +17,26 @@ from services.messages import *
 from services.create_message import *
 from services.show_activity import *
 
+# IMPORT LIBRARIES TO SET UP TH Open Telemetary
+from opentelemetry import trace
+# this would import the tracing API from OpenTelemetry.
+# it allows for creating and managing spans (units of work in a trace) and perform other tracing-related operations.
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+# the above is used to automatically instrument a Flask application.
+# it hooks into Flask to trace incoming requests, creating spans for each request.
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+# the above would instrument the requests library. this allows tracing of outgoing HTTP requests made using the requests library.
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+# this would help export the spans (or traces) to a backend that supports the OTLP via HTTP.
+# It sends trace data to a collector or an observability platform
+from opentelemetry.sdk.trace import TracerProvider
+# the TracerProvider is the central object responsible for managing the collection of traces.
+# it creates and manages tracers (objects used to create spans)
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+# this is reponsible for processing and exporting spans in batches. 
+# instead of sending spans immediately, it batches them and exports them periodically, improving efficiency.
+
+
 app = Flask(__name__)
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
