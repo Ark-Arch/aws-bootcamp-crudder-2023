@@ -21,6 +21,7 @@ from services.show_activity import *
 from opentelemetry import trace
 # this would import the tracing API from OpenTelemetry.
 # it allows for creating and managing spans (units of work in a trace) and perform other tracing-related operations.
+# MANUAL CREATION OF THE SPANS
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 # the above is used to automatically instrument a Flask application.
 # it hooks into Flask to trace incoming requests, creating spans for each request.
