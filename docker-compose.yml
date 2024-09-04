@@ -10,6 +10,14 @@ services:
     environment:
       FRONTEND_URL: "https://3000-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
       BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      OTEL_SERVICE_NAME: "backend-flask" # gets called the particular service name.
+      # this is what tells where data goes to or flows through during a trace
+
+      # CONFIGURING OTel
+      # this configures OTel to send to Honeycomb.io - honeycomb is an OTel backend service
+      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
+      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
+
     build: ./backend-flask
     # the bulid specifes the BUILD CONTEXT!. Docker would look for a Dockerfile in the ./backend-flask
     ports:
