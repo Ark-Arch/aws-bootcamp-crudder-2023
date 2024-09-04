@@ -38,6 +38,20 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 # instead of sending spans immediately, it batches them and exports them periodically, improving efficiency.
 
 
+# Initialize tracing and an exporter that can send data to Honeycomb
+provider = TracerProvider()
+processor = BatchSpanProcessor(OTLPSpanExporter())
+provider.add_span_processor(processor)
+trace.set_tracer_provider(provider)
+tracer = trace.get_tracer(__name__)
+# so the __name__ represents the name of the module.
+# the trace.get_tracer(__name__) gets a tracer object associated with the current module.
+# this tracer will be used to create spans for tracing operations
+# passing __name__ helps ensure the trace is labeled with the module name for better observability and debugging.
+# this is helpful for debugging and monitoring.
+# in most cases, the __name__ will resolve to __main__ if the file is executed directly, or to the module's name if it's imported into another module
+
+
 app = Flask(__name__)
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
