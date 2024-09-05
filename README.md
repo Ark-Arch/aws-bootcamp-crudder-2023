@@ -6,6 +6,9 @@
 reference: 
 https://github.com/omenking/aws-bootcamp-cruddur-2023
 
+simple web app to tell which honey comb environment i'm using:
+https://honeycomb-whoami.glitch.me/
+
 This is the starting codebase that will be used in the FREE AWS Cloud Project Bootcamp 2023
 
 ![Cruddur Graphic](_docs/assets/cruddur-banner.jpg)
