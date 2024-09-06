@@ -43,7 +43,7 @@ provider = TracerProvider()
 processor = BatchSpanProcessor(OTLPSpanExporter()) # the endpoint to which it exports the traces to has been set as environment variables. as well as the need API key into honeycomb.io
 provider.add_span_processor(processor)
 trace.set_tracer_provider(provider)
-tracer = trace.get_tracer(__name__)
+tracer = trace.get_tracer(__name__) # acquiring a trace ....
 # so the __name__ represents the name of the module.
 # the trace.get_tracer(__name__) gets a tracer object associated with the current module.
 # this tracer will be used to create spans for tracing operations
